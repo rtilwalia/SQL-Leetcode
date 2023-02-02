@@ -1,0 +1,1 @@
+with [rank] as (select id, salary, dense_rank() over(order by salary desc) as [dense_rank] from Employee)select isnull((select distinct salary  from [rank]where [dense_rank] = 2), NULL) as SecondHighestSalary;
